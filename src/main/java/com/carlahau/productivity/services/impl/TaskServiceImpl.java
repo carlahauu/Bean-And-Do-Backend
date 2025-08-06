@@ -1,7 +1,6 @@
 package com.carlahau.productivity.services.impl;
 
 import com.carlahau.productivity.domain.entities.*;
-import com.carlahau.productivity.repositories.CompletedTaskCountRepository;
 import com.carlahau.productivity.repositories.TaskListRepository;
 import com.carlahau.productivity.repositories.TaskRepository;
 import com.carlahau.productivity.services.TaskService;
@@ -23,7 +22,7 @@ public class TaskServiceImpl implements TaskService{
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public TaskServiceImpl(TaskRepository taskRepository, TaskListRepository taskListRepository, CompletedTaskCountRepository completedTaskCountRepository) {
+    public TaskServiceImpl(TaskRepository taskRepository, TaskListRepository taskListRepository) {
         this.taskRepository = taskRepository;
         this.taskListRepository = taskListRepository;
     }
