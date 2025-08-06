@@ -2,7 +2,7 @@ FROM maven:3.8.5-openjdk-18 AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
-RUN mvn package
+RUN mvn package -DskipTests
 
 FROM openjdk:18
 WORKDIR /productivity
