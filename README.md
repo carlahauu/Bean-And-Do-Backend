@@ -58,7 +58,3 @@ spring.datasource.password=<SUPABASE_PASSWORD>
 
 # Run the backend
 ./mvnw spring-boot:run
-# Back-And-Do-Backend
-# Back-And-Do-Backend
-# Back-And-Do-Backend
-# Bean-And-Do-Backend
