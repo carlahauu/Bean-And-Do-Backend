@@ -42,9 +42,6 @@ public class TaskServiceImpl implements TaskService{
         if (task.getTitle() == null || task.getTitle().isBlank()){
             throw new IllegalArgumentException("Task must have a title!");
         }
-        TaskPriority taskPriority = Optional.ofNullable(task.getPriority())
-                .orElse(TaskPriority.MEDIUM);
-        TaskStatus taskStatus = TaskStatus.OPEN;
 
         TaskList taskList = taskListRepository.findById(taskListId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Task List ID provided!"));
@@ -53,10 +50,6 @@ public class TaskServiceImpl implements TaskService{
         Task taskToSave = new Task(
                 null,
                 task.getTitle(),
-                task.getDescription(),
-                task.getDueDate(),
-                taskStatus,
-                taskPriority,
                 currentTime,
                 currentTime,
                 taskList
@@ -80,14 +73,6 @@ public class TaskServiceImpl implements TaskService{
         Task existingTask = taskRepository.findByTaskListIdAndId(taskListId, taskId).orElseThrow(() ->
                 new IllegalArgumentException("Task not found!"));
         existingTask.setTitle(task.getTitle());
-        existingTask.setDescription(task.getDescription());
-        existingTask.setPriority(task.getPriority());
-        existingTask.setStatus(task.getStatus());
-        existingTask.setDueDate(task.getDueDate());
-        existingTask.setUpdated(LocalDateTime.now());
-        if (task.getStatus() == TaskStatus.CLOSED) {
-            incrementCount();
-        }
         return taskRepository.save(existingTask);
     }
 

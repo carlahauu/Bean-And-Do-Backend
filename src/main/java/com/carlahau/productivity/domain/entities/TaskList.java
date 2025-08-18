@@ -19,9 +19,6 @@ public class TaskList {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "description", nullable = true)
-    private String description;
-
     @OneToMany(mappedBy = "taskList", cascade = {
             CascadeType.REMOVE, CascadeType.PERSIST
     })
@@ -36,10 +33,9 @@ public class TaskList {
     public TaskList() {
     }
 
-    public TaskList(UUID id, String title, String description, List<Task> tasks, LocalDateTime created, LocalDateTime updated) {
+    public TaskList(UUID id, String title, List<Task> tasks, LocalDateTime created, LocalDateTime updated) {
         this.id = id;
         this.title = title;
-        this.description = description;
         this.tasks = tasks;
         this.created = created;
         this.updated = updated;
@@ -59,14 +55,6 @@ public class TaskList {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public List<Task> getTasks() {
@@ -97,12 +85,12 @@ public class TaskList {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         TaskList taskList = (TaskList) o;
-        return Objects.equals(id, taskList.id) && Objects.equals(title, taskList.title) && Objects.equals(description, taskList.description) && Objects.equals(tasks, taskList.tasks) && Objects.equals(created, taskList.created) && Objects.equals(updated, taskList.updated);
+        return Objects.equals(id, taskList.id) && Objects.equals(title, taskList.title) && Objects.equals(tasks, taskList.tasks) && Objects.equals(created, taskList.created) && Objects.equals(updated, taskList.updated);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, tasks, created, updated);
+        return Objects.hash(id, title, tasks, created, updated);
     }
 
     @Override
@@ -110,7 +98,6 @@ public class TaskList {
         return "TaskList{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
                 ", tasks=" + tasks +
                 ", created=" + created +
                 ", updated=" + updated +

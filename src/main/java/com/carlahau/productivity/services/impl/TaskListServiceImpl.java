@@ -37,7 +37,6 @@ public class TaskListServiceImpl implements TaskListService {
         return taskListRepository.save(new TaskList(
                 null,
                 taskList.getTitle(),
-                taskList.getDescription(),
                 null,
                 currentTime,
                 currentTime
@@ -60,7 +59,6 @@ public class TaskListServiceImpl implements TaskListService {
         TaskList existingTaskList = taskListRepository.findById(taskListId).orElseThrow(() ->
                 new IllegalArgumentException("Task list not found!"));
         existingTaskList.setTitle(taskList.getTitle());
-        existingTaskList.setDescription(taskList.getDescription());
         existingTaskList.setUpdated(LocalDateTime.now());
         return taskListRepository.save(existingTaskList);
     }
