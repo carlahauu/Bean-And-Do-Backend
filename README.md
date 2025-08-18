@@ -2,9 +2,9 @@
 
 **Brew your focus. Get things done.**  
 This is the **backend** for the Bean & Do productivity web app — a cozy, café‑inspired Pomodoro and task management tool.  
-It provides the REST API that powers the frontend, which is available in a **separate repository**.
+It provides the REST API that powers the frontend, which is available in a [**separate repository**](https://github.com/carlahauu/Bean-And-Do-Frontend).
 
-<img width="736" height="528" alt="Screenshot 2025-07-31 at 9 52 18 PM" src="https://github.com/user-attachments/assets/46c0beb0-5ba0-4b55-903f-8ed0602c0a4b" />
+![1754905348417](https://github.com/user-attachments/assets/df6fa371-4ac6-47f6-99f0-b994db0947df)
 
 ---
 
