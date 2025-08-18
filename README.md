@@ -43,7 +43,7 @@ You can view the design concept here: https://www.figma.com/design/ZwS9rUK2bc1DA
 
 ### Backend Setup
 #### Clone the backend repository
-git clone https://github.com/your-username/bean-and-do-backend.git 
+git clone https://github.com/carlahauu/bean-and-do-backend.git 
 cd bean-and-do-backend
 
 #### Export your Supabase credentials as environment variables
